@@ -293,6 +293,17 @@ form input[type="submit"], form button, form input[type="reset"] {
     display: block;
     overflow: hidden;
     height: 0; }
+  #cta {
+    background-image: url("../../images/slide-1.JPG");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #f9e5df;
+    padding: 3.5em 0 4em 0;
+    text-align: center;
+  }
+
   @media (min-width: 768px) {
     .container {
       width: 750px; } }
@@ -1489,7 +1500,7 @@ ul.address {
     color: #dcc2a0; }
 
 ul.bullet {
-  list-style-image: url(images/bullet.png);
+  list-style-image: url(../../images/bullet.png);
   list-style-position: inside; }
   ul.bullet li {
     padding: 10px 0;
