@@ -19,29 +19,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: #222;
 }
 
-/* Form Fields */
-
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=url],
-input[type=search],
-input[type=number],
-input[type=date],
-input[type=month],
-input[type=week],
-input[type=time],
-input[type=datetime],
-input[type=datetime-local],
-textarea,
-select {
-	border-color: #f1f1f1;
-	border-top-color: #ddd;
-	border-left-color: #ddd;
-	background: #f9f9f9;
-	color: #515151;
-}
-
 /* Blockquote */
 
 blockquote,
