@@ -39,9 +39,8 @@
 							<li class="menu-item current-menu-item"><a href="index.html">Homepage</br>الرئيسية</a></li>
 							<li class="menu-item"><a href="about.html">About</br>من نحن</a></li>
 							<li class="menu-item"><a href="sermons.html">Sermons</br>العظات</a></li>
-							<li class="menu-item"><a href="events.html">Events</br>أحداث</a></li>
 							<li class="menu-item"><a href="media.html">Media</br>ترانيم</a></li>
-							<li class="menu-item"><a href="#">Contact</br>اتصل بنا</a></li>
+							<li class="menu-item"><a href="contact.html">Contact</br>اتصل بنا</a></li>
 						</ul>
 					</div>
 
@@ -65,7 +64,7 @@
 				<div class="fullwidth-block">
 					<div class="container">
 					<center><h2 class="section-title" style="direction: rtl;">نرحب بكم إلى كنيسة التعاون المعمدانية</br></br>
-					We welcome you to the Fellowship Bible Church</h2></center>
+					We welcome you to the Fellowship Baptist Church</h2></center>
 					<hr>
 					</br>
 
@@ -102,8 +101,8 @@
 								<hr>
 								</br>
 								<center><h3>Join us for a Worship Service.</h3></center>
-								<center><h4>Sunday 10:30 AM at the Fellowship Baptist Church.</h4></center>
-								<div id="DateCountdown" data-date="2017-09-11 10:30:00" style="width: 100%;"></div>
+								<center><h4>Sunday 10:30 AM at the Fellowship Baptist Church. Time until next Sermon: <span id="timeLeft"></span></h4></center>
+								<div id="DateCountdown" data-date="2017-09-17 10:30:00" style="width: 100%;"></div>
 
 
 						</div>
@@ -218,6 +217,53 @@
 		        }
 		    }
 		});
+		</script>
+		<script>
+			function updateTimeSpan() {
+
+			    var theSpan = document.getElementById('timeLeft');
+			    var d = new Date();
+			    var t = new Date();
+			    var ms;
+			    var s, m, h, d;
+			    
+			    // if it's after 11am, set today to tomorrow
+			    if( d.getHours() > 10 )
+			        d.setDate( d.getDate() + 1 );
+			    
+			    // get the next monday
+			    while( d.getDay() != 0 )
+			        d.setDate( d.getDate() + 1 );
+			    
+			    // set the time
+			    d.setHours( 10 );
+			    d.setMinutes( 30 );
+			    d.setSeconds( -1 );
+			    
+			    // get the difference between right now and next monday
+			    ms = d - t;
+			    
+			    // get the days between now and then
+			    d = parseInt( ms / ( 1000 * 60 * 60 * 24 ) );
+			    ms -= ( d * 1000 * 60 * 60 * 24 );
+			    
+			    // get hours
+			    h = parseInt( ms / ( 1000 * 60 * 60 ) );
+			    ms -= ( h * 1000 * 60 * 60 );
+			    
+			    // get minutes
+			    m = parseInt( ms / ( 1000 * 60 ) );
+			    ms -= ( m * 1000 * 60 );
+			    
+			    // get seconds
+			    s = parseInt( ms / 1000 );
+			    if (d == 1) {theSpan.innerHTML = d + ' day, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';} 
+			    else {theSpan.innerHTML = d + ' days, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';}
+
+			    setTimeout( 'updateTimeSpan()', 100 );
+			}
+
+			onload = updateTimeSpan;
 		</script>
 		<script src="assets/js/jquery-1.11.1.min.js"></script>
 		<script src="assets/js/plugins.js"></script>

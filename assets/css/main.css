@@ -261,7 +261,19 @@ form input[type="submit"], form button, form input[type="reset"] {
   text-decoration: none;
   color: #acacb1; 
  }
+ 
+.button:hover{
+    -webkit-box-shadow: 0px 3px 9px rgba(0,0,0,.35);
+    -moz-box-shadow: 0px 3px 9px rgba(0,0,0,.35);
+    box-shadow: 0px 3px 9px rgba(0,0,0,.35);
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
 
+}
 .button, form input[type="submit"], form button, form input[type="reset"] {
   display: inline-block;
   background: #e2caae;
