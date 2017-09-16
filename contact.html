@@ -60,6 +60,54 @@
 					<h2 class="page-title">Contact us</h2>
 				</div>
 			</div>
+			
+		<script>
+			function updateTimeSpan() {
+
+			    var theSpan = document.getElementById('timeLeft');
+			    var d = new Date();
+			    var t = new Date();
+			    var ms;
+			    var s, m, h, d;
+			    
+			    // if it's after 11am, set today to tomorrow
+			    if( d.getHours() > 10 )
+			        d.setDate( d.getDate() + 1 );
+			    
+			    // get the next monday
+			    while( d.getDay() != 0 )
+			        d.setDate( d.getDate() + 1 );
+			    
+			    // set the time
+			    d.setHours( 10 );
+			    d.setMinutes( 30 );
+			    d.setSeconds( -1 );
+			    
+			    // get the difference between right now and next monday
+			    ms = d - t;
+			    
+			    // get the days between now and then
+			    d = parseInt( ms / ( 1000 * 60 * 60 * 24 ) );
+			    ms -= ( d * 1000 * 60 * 60 * 24 );
+			    
+			    // get hours
+			    h = parseInt( ms / ( 1000 * 60 * 60 ) );
+			    ms -= ( h * 1000 * 60 * 60 );
+			    
+			    // get minutes
+			    m = parseInt( ms / ( 1000 * 60 ) );
+			    ms -= ( m * 1000 * 60 );
+			    
+			    // get seconds
+			    s = parseInt( ms / 1000 );
+			    if (d == 1) {theSpan.innerHTML = d + ' day, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';} 
+			    else {theSpan.innerHTML = d + ' days, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';}
+
+			    setTimeout( 'updateTimeSpan()', 100 );
+			}
+
+			onload = updateTimeSpan;
+		</script>
 
 			<main class="main-content">
 				<div class="fullwidth-block">
@@ -96,9 +144,9 @@
 									<h3 class="widget-title">Who We Are</h3>
 									<p>Pastored and directed by the Rev. Joseph E. Haddad since its establishment, the FBC is active member of the renowned Higher Council of Evangelical Churches that operate in Syria and Lebanon, headed by the Dr. Rev. Salim Sahiouny.</p>
 								</div>
-								
-							<div class="fb-page" data-href="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-hide-cta="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/">Fellowship Baptist Church</a></blockquote></div>
-
+								<div class="widget">
+									<div class="fb-page" data-href="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-hide-cta="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Fellowship-Baptist-Church-122343235090982/">Fellowship Baptist Church</a></blockquote></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -183,53 +231,7 @@
 
 		</div>
 		
-		<script>
-			function updateTimeSpan() {
 
-			    var theSpan = document.getElementById('timeLeft');
-			    var d = new Date();
-			    var t = new Date();
-			    var ms;
-			    var s, m, h, d;
-			    
-			    // if it's after 11am, set today to tomorrow
-			    if( d.getHours() > 10 )
-			        d.setDate( d.getDate() + 1 );
-			    
-			    // get the next monday
-			    while( d.getDay() != 0 )
-			        d.setDate( d.getDate() + 1 );
-			    
-			    // set the time
-			    d.setHours( 10 );
-			    d.setMinutes( 30 );
-			    d.setSeconds( -1 );
-			    
-			    // get the difference between right now and next monday
-			    ms = d - t;
-			    
-			    // get the days between now and then
-			    d = parseInt( ms / ( 1000 * 60 * 60 * 24 ) );
-			    ms -= ( d * 1000 * 60 * 60 * 24 );
-			    
-			    // get hours
-			    h = parseInt( ms / ( 1000 * 60 * 60 ) );
-			    ms -= ( h * 1000 * 60 * 60 );
-			    
-			    // get minutes
-			    m = parseInt( ms / ( 1000 * 60 ) );
-			    ms -= ( m * 1000 * 60 );
-			    
-			    // get seconds
-			    s = parseInt( ms / 1000 );
-			    if (d == 1) {theSpan.innerHTML = d + ' day, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';} 
-			    else {theSpan.innerHTML = d + ' days, ' + h + ' hours, ' + m + ' minutes, and ' + s + ' seconds.';}
-
-			    setTimeout( 'updateTimeSpan()', 100 );
-			}
-
-			onload = updateTimeSpan;
-		</script>
 		<script src="assets/js/jquery-1.11.1.min.js"></script>
 		<script src="assets/js/plugins.js"></script>
 		<script src="assets/js/app.js"></script>
